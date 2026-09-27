@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Guild",
+    "symbol": "GILD",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "GuildDues",
+      "constructorArgs": ["$token", "$owner"]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "Sepolia test toy; membership grants no off-chain rights or services. Deploy LaunchToken before GuildDues. GuildDues uses GILD and fixes the policy-resolved $owner as its immutable treasurer, the sole recipient of permissionless sweeps, with no admin powers. GuildDues requires no token balance at deployment and no initialization calls. The pool pairs GILD with native Sepolia ETH and has no hook. initialPrice is sqrtPriceX96; the deployer derives the effective opening price from policy when initialMarketCapWei is specified."
+}
